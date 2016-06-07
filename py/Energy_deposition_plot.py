@@ -61,8 +61,22 @@ def main():
     SLSN_rate_error_low = np.array([45, 5*45])*1e-9
     SFRD = f(SLSN_z)
 
+
+
     ax1.plot(SLSN_z, 1e53*SLSN_rate / SFRD, label="SLSN", color = cmap[-1])
     ax1.errorbar(SLSN_z, 1e53*SLSN_rate / SFRD, yerr=[1e53*SLSN_rate_error_low / SFRD, 1e53*SLSN_rate_error_high/SFRD], fmt=".", capsize=0, elinewidth=1.5, ms=7, color = cmap[-1])
+
+
+
+    SLSN_z = np.array([0.16, 1.00, 1.13, 3.00]) # Cappelaro
+    SLSN_rate = np.array([30.8, 18.4, 90.9, 400])*1e-9
+    SLSN_rate_error_high = np.array([109 - 32, 43 - 18, 167 - 91, 601 - 400])*1e-9
+    SLSN_rate_error_low = np.array([32 - 6, 18 - 4, 91 - 55, 400 - 200])*1e-9
+    SFRD = f(SLSN_z)
+
+    ax1.plot(SLSN_z, 1e53*SLSN_rate / SFRD, label="SLSN", color = cmap[-1])
+    ax1.errorbar(SLSN_z, 1e53*SLSN_rate / SFRD, yerr=[1e53*SLSN_rate_error_low / SFRD, 1e53*SLSN_rate_error_high/SFRD], fmt=".", capsize=0, elinewidth=1.5, ms=7, color = cmap[-1])
+
 
 
     ax1.set_xlabel("Redshift")
