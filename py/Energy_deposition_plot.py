@@ -12,19 +12,11 @@ seaborn.set_style('ticks')
 
 cmap = seaborn.cubehelix_palette(8, start = 0.2, rot = 2.2)
 
-
-
-
-
-
 def main():
-    z = np.arange(0, 10, 0.001)
-    phi = (0.015 * (1 + z)**5.0) / (((1 + z) / 1.5)**6.1 + 1)
+    redshift = np.arange(0, 10, 0.001)
+    phi = (0.015 * (1 + redshift)**5.0) / (((1 + redshift) / 1.5)**6.1 + 1)
     from scipy import interpolate
-    f = interpolate.interp1d(z, phi)
-
-
-
+    f = interpolate.interp1d(redshift, phi)
 
     Corecollapse_z = np.array([0.04, 0.25, 0.38, 0.59, 1.14, 1.93]) # Strolger et al. 2015
     Corecollapse_ze = np.array([0.04, 0.04, 0.09, 0.13, 0.42, 0.37])
